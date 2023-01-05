@@ -1,0 +1,10 @@
+nginx_package: nginx
+nginx_letsencrypt_packages:
+  - certbot
+  - python3-certbot-nginx
+nginx_service: nginx
+nginx_vhost_available: /etc/nginx/sites-available/
+nginx_vhost_enabled: /etc/nginx/sites-enabled/
+nginx_delete:
+  - /etc/nginx/sites-enabled/default
+  - /etc/nginx/sites-available/default
