@@ -19,8 +19,18 @@
   tags: debug_info
 
 - name: Install Nginx
-  include: 01-nginx.yml
+  include: 20-install-nginx.yml
+  when: '"install" in mel_action'
 
-- name: Install letsencrypt
-  include: 02-letsencrypt.yml
+- name: Install Letsencrypt
+  include: 21-install-letsencrypt.yml
+  when: '"install" in mel_action'
+
+- name: Configure Nginx
+  include: 30-config-nginx.yml
+  when: '"configure" in mel_action'
+
+- name: Configure Letsencrypt
+  include: 31-config-letsencrypt.yml
+  when: '"configure" in mel_action'
 

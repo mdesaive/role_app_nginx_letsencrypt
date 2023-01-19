@@ -1,0 +1,29 @@
+- name: Install Nginx
+  package:
+    name: "{{ nginx_package }}"
+    state: present
+
+- name: Enable Nginx Service
+  service:
+    name: "{{ nginx_service }}"
+    state: started
+    enabled: true
+
+      # - name: Setup Nginx default vhost
+      #   template:
+      #     src: www.domain.conf
+      #     dest: "{{ nginx_vhost_available }}/{{ nginx_domain_name }}.conf"
+      #   notify: Restart Nginx
+      # 
+      # - name: Create symling to hosts enabled.
+      #   file:
+      #     src: "{{ nginx_vhost_available }}/{{ nginx_domain_name }}.conf"
+      #     dest: "{{ nginx_vhost_enabled }}/{{ nginx_domain_name }}.conf"
+      #     state: link
+      #   notify: Restart Nginx
+      # 
+      # - name: Remove unwanted configuration files
+      #   file:
+      #     path: "{{ item }}"
+      #     state: absent
+      #   with_items: "{{ nginx_delete }}"

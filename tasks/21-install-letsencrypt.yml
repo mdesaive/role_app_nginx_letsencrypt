@@ -9,7 +9,7 @@
     state: present
   with_items: "{{ nginx_letsencrypt_packages }}"
 
-- name: Execute certbot
-  shell:
-    cmd: "certbot -n --nginx -d {{ nginx_domain_name }} --email {{ letsencrypt_notification_email }} --agree-tos"
-    #   notifiy: Restart Nginx
+    # - name: Execute certbot
+    #   shell:
+    #     cmd: "certbot -n --nginx -d {{ nginx_domain_name }} --email {{ letsencrypt_notification_email }} --agree-tos"
+    #     #   notifiy: Restart Nginx
